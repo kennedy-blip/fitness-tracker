@@ -1,0 +1,162 @@
+{
+  "dailySteps": [
+    {
+      "date": "Mon",
+      "steps": 8432,
+      "goal": 10000
+    },
+    {
+      "date": "Tue",
+      "steps": 11250,
+      "goal": 10000
+    },
+    {
+      "date": "Wed",
+      "steps": 6890,
+      "goal": 10000
+    },
+    {
+      "date": "Thu",
+      "steps": 14520,
+      "goal": 10000
+    },
+    {
+      "date": "Fri",
+      "steps": 9875,
+      "goal": 10000
+    },
+    {
+      "date": "Sat",
+      "steps": 15680,
+      "goal": 10000
+    },
+    {
+      "date": "Sun",
+      "steps": 7240,
+      "goal": 10000
+    }
+  ],
+  "weeklyProgress": {
+    "steps": {
+      "current": 73887,
+      "goal": 70000
+    },
+    "calories": {
+      "current": 2850,
+      "goal": 2500
+    },
+    "workouts": {
+      "current": 5,
+      "goal": 7
+    },
+    "activeMinutes": {
+      "current": 320,
+      "goal": 350
+    }
+  },
+  "caloriesBurned": [
+    {
+      "day": "Mon",
+      "calories": 320
+    },
+    {
+      "day": "Tue",
+      "calories": 450
+    },
+    {
+      "day": "Wed",
+      "calories": 280
+    },
+    {
+      "day": "Thu",
+      "calories": 520
+    },
+    {
+      "day": "Fri",
+      "calories": 380
+    },
+    {
+      "day": "Sat",
+      "calories": 680
+    },
+    {
+      "day": "Sun",
+      "calories": 220
+    }
+  ],
+  "heartRateZones": [
+    {
+      "name": "Peak",
+      "duration": 45,
+      "color": "bg-red-500",
+      "percent": 15
+    },
+    {
+      "name": "Cardio",
+      "duration": 95,
+      "color": "bg-orange-500",
+      "percent": 32
+    },
+    {
+      "name": "Fat Burn",
+      "duration": 110,
+      "color": "bg-yellow-500",
+      "percent": 37
+    },
+    {
+      "name": "Light",
+      "duration": 40,
+      "color": "bg-green-500",
+      "percent": 13
+    }
+  ],
+  "workoutHistory": [
+    {
+      "id": 1,
+      "type": "Running",
+      "duration": 45,
+      "calories": 520,
+      "date": "Today, 7:30 AM",
+      "icon": "🏃"
+    },
+    {
+      "id": 2,
+      "type": "HIIT",
+      "duration": 30,
+      "calories": 380,
+      "date": "Yesterday, 6:00 PM",
+      "icon": "💪"
+    },
+    {
+      "id": 3,
+      "type": "Cycling",
+      "duration": 60,
+      "calories": 450,
+      "date": "Mar 15, 5:30 PM",
+      "icon": "🚴"
+    },
+    {
+      "id": 4,
+      "type": "Yoga",
+      "duration": 40,
+      "calories": 150,
+      "date": "Mar 14, 7:00 AM",
+      "icon": "🧘"
+    },
+    {
+      "id": 5,
+      "type": "Swimming",
+      "duration": 50,
+      "calories": 420,
+      "date": "Mar 13, 6:00 PM",
+      "icon": "🏊"
+    }
+  ],
+  "todayStats": {
+    "steps": 8432,
+    "calories": 320,
+    "distance": 6.2,
+    "activeMinutes": 45,
+    "heartRate": 72
+  }
+}

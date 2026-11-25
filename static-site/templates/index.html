@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="container header-row">
+      <div class="identity"><span class="logo" aria-hidden="true">F</span><div>
+        <h1>FitTrack</h1><p>Your daily fitness companion</p>
+      </div></div>
+      <div class="identity"><div class="greeting"><strong>Welcome back!</strong><p>{{ site.date }}</p></div>
+        <span class="avatar">JD</span>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <section class="block" aria-labelledby="today">
+      <h2 id="today">Today's Stats</h2>
+      <div class="grid stats">
+      {% for stat in stats %}
+        <div class="card stat">
+          <div class="stat-label"><span aria-hidden="true">{{ stat.icon }}</span>{{ stat.label }}</div>
+          <strong>{{ stat.value|number }}</strong>{% if stat.unit %}<span class="unit">{{ stat.unit }}</span>{% endif %}
+        </div>
+      {% endfor %}
+      </div>
+    </section>
+    <section class="block" aria-labelledby="weekly">
+      <h2 id="weekly">Weekly Progress</h2>
+      <div class="grid weekly">
+      {% for metric in weekly %}
+        <div class="card metric">
+          <div class="metric-label row"><span>{{ metric.label }}</span><span aria-hidden="true">{{ metric.icon }}</span></div>
+          <div class="amount"><strong{% if metric.complete %} class="complete"{% endif %}>{{ metric.current|number }}</strong>
+            <span>/ {{ metric.goal|number }} {{ metric.unit }}</span></div>
+          <div class="track" aria-hidden="true"><div class="fill {{ 'emerald' if metric.complete else metric.color }}" style="width: {{ metric.percent }}%"></div></div>
+        </div>
+      {% endfor %}
+      </div>
+    </section>
+    <div class="grid pair block">
+      <section class="card panel">
+        <h3>Daily Steps</h3>
+        <ul class="chart step-chart" aria-label="Daily step counts">
+        {% for day in steps %}
+          <li class="{{ 'complete' if day.complete else 'below' }}" aria-label="{{ day.date }}: {{ day.steps|number }} steps; goal {{ day.goal|number }}">
+            <div class="plot" aria-hidden="true">
+              <div class="goal-line" style="bottom: {{ day.goal_height }}%"></div>
+              <div class="bar {{ 'emerald' if day.complete else 'indigo' }}" style="height: {{ day.height }}%"></div>
+            </div>
+            <span aria-hidden="true">{{ day.date }}</span><strong aria-hidden="true">{{ day.label }}k</strong>
+          </li>
+        {% endfor %}
+        </ul>
+        <div class="legend"><span><i class="step-key"></i>Steps</span><span><i class="goal-key"></i>Goal</span></div>
+      </section>
+      <section class="card panel">
+        <h3>Calories Burned</h3>
+        <ul class="chart calorie-chart" aria-label="Daily calories burned">
+        {% for day in calories %}
+          <li><div class="plot" aria-hidden="true"><div class="bar {{ 'orange' if day.high else 'amber' }}" style="height: {{ day.height }}%"></div></div>
+          <span>{{ day.day }}</span><strong>{{ day.calories }}</strong></li>
+        {% endfor %}
+        </ul>
+      </section>
+    </div>
+    <div class="grid pair">
+      <section class="card panel">
+        <h3>Heart Rate Zones</h3>
+        <ul class="zones">
+        {% for zone in data.heartRateZones %}
+          <li><div class="row"><strong>{{ zone.name }}</strong><span>{{ zone.duration }} min</span></div>
+            <div class="track" aria-hidden="true"><div class="fill {{ zone.color|replace('bg-', '')|replace('-500', '') }}" style="width: {{ zone.percent }}%"></div></div></li>
+        {% endfor %}
+        </ul>
+        <div class="row total"><span>Total Time</span><strong>{{ zone_total }} min</strong></div>
+      </section>
+      <section class="card panel">
+        <h3>Workout History</h3>
+        <ul class="workouts">
+        {% for workout in data.workoutHistory %}
+          <li><span class="workout-icon" aria-hidden="true">{{ workout.icon }}</span><div class="workout-name"><strong>{{ workout.type }}</strong><div>{{ workout.date }}</div></div>
+            <div class="workout-amount"><strong>{{ workout.duration }} min</strong><div>{{ workout.calories }} cal</div></div></li>
+        {% endfor %}
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer><p class="container">FitTrack © {{ site.year }} - Your fitness journey starts here</p></footer>
+</body>
+</html>

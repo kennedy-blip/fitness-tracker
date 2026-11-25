@@ -1,0 +1,93 @@
+:root {
+  --ink: #1e293b;
+  --muted: #62748e;
+  --line: #e2e8f0;
+  --surface: #f1f5f9;
+  font: 16px/1.5 ui-sans-serif, system-ui, sans-serif;
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: linear-gradient(135deg, #f8fafc, #fff, var(--surface)); }
+h1, h2, h3, p, ul { margin: 0; }
+ul { list-style: none; padding: 0; }
+h1 { font-size: 1.25rem; line-height: 1.75rem; }
+h2 { font-size: 1.5rem; line-height: 2rem; margin-bottom: 1rem; }
+h3 { font-size: 1.125rem; line-height: 1.75rem; font-weight: 600; margin-bottom: 1rem; }
+.container { max-width: 80rem; margin-inline: auto; padding-inline: 1rem; }
+.top { position: sticky; top: 0; z-index: 1; border-bottom: 1px solid var(--line); background: #fffc; backdrop-filter: blur(8px); }
+.header-row, .row { display: flex; justify-content: space-between; align-items: center; }
+.header-row { padding-block: 1rem; }
+.identity { display: flex; align-items: center; gap: .75rem; }
+.identity p { font-size: .75rem; line-height: 1rem; color: var(--muted); }
+.greeting { display: none; text-align: right; font-size: .875rem; }
+.greeting strong { font-weight: 500; }
+.logo, .avatar { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; color: white; font-weight: 700; }
+.logo { border-radius: .75rem; background: linear-gradient(135deg, #6366f1, #9333ea); font-size: 1.125rem; }
+.avatar { border-radius: 50%; background: linear-gradient(135deg, #34d399, #06b6d4); }
+main.container { padding-block: 2rem; }
+.block { margin-bottom: 2rem; }
+.grid { display: grid; gap: 1rem; }
+.stats, .weekly { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pair { gap: 1.5rem; }
+.card { background: white; border: 1px solid var(--surface); border-radius: 1rem; box-shadow: 0 1px 3px #0001; }
+.stat { padding: 1rem; font-size: 1.25rem; line-height: 1.75rem; }
+.stat-label { display: flex; align-items: center; gap: .5rem; margin-bottom: .5rem; font-size: .75rem; font-weight: 500; color: var(--muted); }
+.stat-label span { font-size: 1.125rem; }
+.unit { margin-left: .25rem; }
+.unit, .amount span, .zones, .total, .workouts li div div { font-size: .875rem; line-height: 1.25rem; color: var(--muted); }
+.metric { padding: 1.25rem; }
+.metric-label { margin-bottom: .75rem; font-size: .875rem; font-weight: 500; color: #475569; }
+.metric-label span:last-child { font-size: 1.25rem; line-height: 1.75rem; }
+.amount { display: flex; align-items: end; gap: .5rem; margin-bottom: .5rem; }
+.amount strong { font-size: 1.5rem; line-height: 2rem; }
+.amount span { margin-bottom: .25rem; }
+.track { height: .5rem; background: var(--surface); border-radius: 999px; overflow: hidden; }
+.fill { height: 100%; border-radius: inherit; background: var(--color); }
+.emerald { --color: #10b981; --light: #34d399; }
+.indigo { --color: #6366f1; --light: #818cf8; }
+.orange { --color: #f97316; --light: #fb923c; }
+.amber { --color: #f59e0b; --light: #fbbf24; }
+.blue { --color: #3b82f6; }
+.purple { --color: #a855f7; }
+.red { --color: #ef4444; }
+.yellow { --color: #eab308; }
+.green { --color: #22c55e; }
+.panel { padding: 1.5rem; }
+.chart { display: flex; align-items: end; gap: .5rem; }
+.step-chart { height: 12rem; }
+.calorie-chart { height: 10rem; }
+.chart li { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: .5rem; font-size: .75rem; line-height: 1rem; }
+.chart span { color: var(--muted); font-weight: 500; }
+.plot { width: 100%; position: relative; display: flex; align-items: end; height: 9rem; }
+.calorie-chart .plot { height: 8rem; }
+.goal-line { position: absolute; width: 100%; border-top: 2px dashed #cbd5e1; }
+.bar { width: 100%; border-radius: .5rem .5rem 0 0; background: linear-gradient(to top, var(--color), var(--light)); }
+.complete { color: #059669; }
+.below { color: #4f46e5; }
+.calorie-chart strong { color: #b45309; }
+.legend { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; color: var(--muted); font-size: .75rem; line-height: 1rem; }
+.legend span { display: flex; align-items: center; gap: .25rem; }
+.legend i { width: .75rem; height: .75rem; border-radius: .25rem; }
+.step-key { background: #6366f1; }
+.goal-key { border: 2px dashed #cbd5e1; }
+.zones li + li { margin-top: 1rem; }
+.zones .track { height: .75rem; margin-top: .25rem; }
+.zones strong { color: #334155; font-weight: 500; }
+.total { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--surface); }
+.total strong { color: var(--ink); font-weight: 600; }
+.workouts { display: grid; gap: .75rem; }
+.workouts li { display: flex; align-items: center; gap: 1rem; padding: .75rem; border-radius: .75rem; background: #f8fafc; transition: background-color .15s; }
+.workouts li:hover { background: var(--surface); }
+.workout-icon { font-size: 1.5rem; }
+.workout-name { flex: 1; }
+.workouts strong { font-weight: 600; }
+.workout-amount { text-align: right; }
+.workouts .workout-amount div { color: #ea580c; }
+footer { margin-top: 3rem; border-top: 1px solid var(--line); background: #ffffff80; text-align: center; color: var(--muted); font-size: .875rem; }
+footer p { padding-block: 1.5rem; }
+@media (min-width: 40rem) { .greeting { display: block; } }
+@media (min-width: 48rem) {
+  .stats { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .weekly { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 64rem) { .pair { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
