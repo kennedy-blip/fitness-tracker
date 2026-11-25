@@ -8,11 +8,7 @@ const generated = fileURLToPath(new URL("./static-site/dist/", import.meta.url))
 const output = fileURLToPath(new URL("./dist/", import.meta.url));
 
 // Render invokes Vite directly, bypassing npm's build script and lifecycle hooks.
-// Keep the original app available for local comparison and rollback.
-export default defineConfig(async ({ command, isPreview }) => {
-  if (command === "serve" && !isPreview) {
-    return (await import("./vite.legacy.config")).default;
-  }
+export default defineConfig(({ command }) => {
   if (command === "build") {
     execFileSync("bash", ["build-for-render.sh"], { cwd: site, stdio: "inherit" });
   }
