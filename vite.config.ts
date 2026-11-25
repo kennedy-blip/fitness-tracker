@@ -18,6 +18,7 @@ export default defineConfig(async ({ command, isPreview }) => {
   }
   return {
     root: generated,
+    base: "./",
     publicDir: false,
     build: { outDir: output, emptyOutDir: true, assetsInlineLimit: 0 },
     plugins: [{
