@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version-file: static-site/.python-version
+          python-version: '3.11'
           cache: pip
           cache-dependency-path: static-site/requirements.txt
       - run: python -m pip install -r requirements.txt
@@ -39,7 +39,7 @@ jobs:
           node-version: '22'
       - uses: actions/setup-python@v5
         with:
-          python-version-file: .python-version
+          python-version: '3.11'
       - run: npm ci && ./node_modules/.bin/vite build
       - run: |
           python -m http.server 8000 --bind 127.0.0.1 --directory dist &
@@ -47,3 +47,10 @@ jobs:
           trap 'kill "$server"' EXIT
           curl --retry 5 --retry-connrefused --fail --silent http://127.0.0.1:8000/ -o /dev/null
           python static-site/smoke.py http://127.0.0.1:8000
+
+  live-smoke:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 static-site/smoke.py https://fitness-tracker-u2xt.onrender.com
